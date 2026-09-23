@@ -1,0 +1,24 @@
+1. Qual a diferença entre `nginx:alpine` e o contêiner `comunicado`?**
+
+`nginx:alpine` é a **imagem Docker**, usada como base para criar contêineres.
+`comunicado` é o **contêiner em execução**, criado a partir dessa imagem.
+
+2. O que significa o mapeamento `8090:80`?**
+
+Significa que a **porta 8090 do ambiente/host** está ligada à **porta 80 do contêiner**, onde o Nginx está funcionando.
+
+3. Qual saída comprova que a página solicitada respondeu?**
+
+A saída do comando:
+
+`curl http://localhost:8090`
+
+que retornou o código HTML da página, incluindo:
+
+`<h1>Comunicado interno disponível</h1>`
+
+Isso comprova que o Nginx recebeu a requisição e respondeu corretamente.
+
+4. Publicação no GitHub**
+
+Para publicar no GitHub, seria necessário criar um repositório e enviar os arquivos do projeto, como o `index.html` e, se solicitado, os comandos utilizados. A publicação em si precisa ser feita com acesso à sua conta do GitHub.
