@@ -1,0 +1,42 @@
+$ cat > index.html <<'EOF'
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+ <meta charset="UTF-8">
+ <title>Comunicado interno</title>
+</head>
+<body>
+ <h1>Comunicado interno disponível</h1>
+</body>
+</html>
+EOF
+docker run -d --name comunicado -p 8090:80 nginx:alpine
+docker cp index.html comunicado:/usr/share/nginx/html/index.html
+docker ps
+curl http://localhost:8090
+Unable to find image 'nginx:alpine' locally
+alpine: Pulling from library/nginx
+e2de96513ba9: Pull complete 
+d9aae54b5831: Pull complete 
+6c53d0b2a666: Pull complete 
+745dfb2690dd: Pull complete 
+9a9a644fdd6a: Pull complete 
+64c8194480fe: Pull complete 
+e76228b47809: Pull complete 
+e72112c14215: Pull complete 
+Digest: sha256:1ed1b0e1d7652937d6cbdaf4018c7b6fc009a7dd6c3047351e2eddda745de43f
+Status: Downloaded newer image for nginx:alpine
+b84e213664c19b3baa97bce4b6d5f60a39867f2e955861a9a47d9a9bc6f3e8d9
+Successfully copied 2.05kB to comunicado:/usr/share/nginx/html/index.html
+CONTAINER ID   IMAGE          COMMAND                  CREATED        STATUS                  PORTS                                     NAMES
+b84e213664c1   nginx:alpine   "/docker-entrypoint.…"   1 second ago   Up Less than a second   0.0.0.0:8090->80/tcp, [::]:8090->80/tcp   comunicado
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+ <meta charset="UTF-8">
+ <title>Comunicado interno</title>
+</head>
+<body>
+ <h1>Comunicado interno disponível</h1>
+</body>
+</html>
